@@ -1,0 +1,19 @@
+import math
+from scipy import optimize
+def f(x):
+    return math.sin(x/5.0)*math.exp(x/10.0) + 5.0*math.exp(-x/2.0)
+x0=2
+bnds = (1.0,30.0)
+res = optimize.minimize(f, x0, method='BFGS',bounds=(1,30))
+print res
+
+
+import math
+import matplotlib.pyplot as plt
+from scipy import optimize
+def f(x):
+    return math.sin(x/5.0)*math.exp(x/10.0) + 5.0*math.exp(-x/2.0)
+x0=30
+bnds = (1,30)
+res = optimize.minimize(f, x0, method='BFGS',bounds=(1,30))
+print res

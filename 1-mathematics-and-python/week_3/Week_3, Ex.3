@@ -1,0 +1,24 @@
+import math
+from scipy import optimize
+def f(x):
+    return math.sin(x/5.0)*math.exp(x/10.0) + 5.0*math.exp(-x/2.0)
+def h(x):
+    return int(f(x))
+x0=30
+bnds = (1,30)
+res = optimize.minimize(h, x0, method='BFGS',bounds=(1,30))
+print res
+
+
+
+
+import math
+import matplotlib.pyplot as plt
+from scipy import optimize
+def f(x):
+    return math.sin(x/5.0)*math.exp(x/10.0) + 5.0*math.exp(-x/2.0)
+def h(x):
+    return int(f(x))
+bounds = [(1, 30)]
+res = optimize.differential_evolution(h, bounds)
+print res
